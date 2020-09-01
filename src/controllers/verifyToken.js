@@ -3,7 +3,7 @@ const config = require('../config.js');
 
 function verifyToken(req, res, next){
 
-	const token= req.headers['x-access-token'];//guardo loq ue el usuaRO ME ENVIAR MEDIANRTE LAS CABECERAS EL CLIENTE
+	const token= req.headers['x-access-token'];//guardo lo que el usuario me va a enviar mediante las 'cabeceras' del navegador
 	if (!token){
 		return res.status(401).json({
 			auth: false,
@@ -11,7 +11,7 @@ function verifyToken(req, res, next){
 		})
 	}
 	const decoded = jwt.verify(token, config.secret);
-	//ompruebo si el id deocdificado existe en la base de datos 
+	//compruebo si el id decodificado existe en la base de datos 
 	req.userId=decoded.id;
 	next();
 

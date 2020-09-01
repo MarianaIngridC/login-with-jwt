@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 
+//conecto a la base datos
 mongoose.connect('mongodb://localhost/dbjwt',{
 	useCreateIndex: true,
 	useNewUrlParser: true,
